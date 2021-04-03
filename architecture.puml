@@ -19,25 +19,22 @@ component "API Gateway" as gateway #DDA6FF
 interface REST
 interface "Kafka" as kafka
 component "Lost Report Service" as LRS
-component "Auth Service" as AS
+component "auth0" as auth0 #DDA6FF
 component "Text Message Service" as TMS
 component "Notification Service" as NS
 database DB_LRS
-database DB_AS
 database DB_TMS
 database DB_NS
 
 frontend --> REST
 REST --> gateway
-gateway --> AS
+REST --> auth0
 gateway --> LRS
 gateway --> TMS
-AS --> kafka: <user registered>
 LRS --> kafka: <lost report created>
 TMS --> kafka: <text message sent>
 kafka --> NS
 LRS - DB_LRS
-AS - DB_AS
 TMS - DB_TMS
 NS - DB_NS
 
@@ -48,11 +45,6 @@ end note
 
 note bottom of LRS
     - create, update, delete lost reports
-end note
-
-note bottom of AS
-    - user registration
-    - maintain authentication tokens
 end note
 
 note bottom of TMS
