@@ -1,0 +1,70 @@
+@startumlS
+
+skinparam component {
+  FontSize 13
+  FontName Courier
+  BorderColor black
+  BackgroundColor 93FFF3
+  ArrowFontName Impact
+  ArrowColor black
+  ArrowFontColor black
+}
+
+skinparam note {
+
+}
+
+component "Frontend" as frontend
+component "API Gateway" as gateway #DDA6FF
+interface REST
+interface "Kafka" as kafka
+component "Lost Report Service" as LRS
+component "Auth Service" as AS
+component "Text Message Service" as TMS
+component "Notification Service" as NS
+database DB_LRS
+database DB_AS
+database DB_TMS
+database DB_NS
+
+frontend --> REST
+REST --> gateway
+gateway --> AS
+gateway --> LRS
+gateway --> TMS
+AS --> kafka: <user registered>
+LRS --> kafka: <lost report created>
+TMS --> kafka: <text message sent>
+kafka --> NS
+LRS - DB_LRS
+AS - DB_AS
+TMS - DB_TMS
+NS - DB_NS
+
+note right of gateway
+    - single entrypoint to whole backend
+    - forward REST requests to microservices
+end note
+
+note bottom of LRS
+    - create, update, delete lost reports
+end note
+
+note bottom of AS
+    - user registration
+    - maintain authentication tokens
+end note
+
+note bottom of TMS
+    - send text message
+    - get text messages
+    - mark message as read
+end note
+
+note left of NS
+    - send notification emails
+    - push notification to frontend
+end note
+
+
+@enduml
