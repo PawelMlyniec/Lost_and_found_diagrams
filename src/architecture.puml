@@ -1,4 +1,4 @@
-```plantuml
+@startuml
 skinparam component {
   FontSize 13
   FontName Courier
@@ -13,7 +13,7 @@ skinparam note {
 
 }
 
-component "Koles" as frontend
+component "Frontend" as frontend
 component "API Gateway" as gateway #DDA6FF
 interface REST
 interface "Kafka" as kafka
@@ -62,4 +62,4 @@ note top of auth0
     - user management
     - authorization
 end note
-```
+@enduml
