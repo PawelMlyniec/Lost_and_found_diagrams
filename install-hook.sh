@@ -1,0 +1,1 @@
+cp build.sh .git/hooks/pre-commit
