@@ -1,5 +1,4 @@
-@startumlS
-
+```plantuml
 skinparam component {
   FontSize 13
   FontName Courier
@@ -63,5 +62,4 @@ note top of auth0
     - user management
     - authorization
 end note
-
-@enduml
+```
