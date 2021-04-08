@@ -13,7 +13,7 @@ skinparam note {
 
 }
 
-component "Frontend" as frontend
+component "Koles" as frontend
 component "API Gateway" as gateway #DDA6FF
 interface REST
 interface "Kafka" as kafka
