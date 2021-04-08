@@ -3,7 +3,7 @@
 ## Online with GitLab editor
 
 * Open `*.md` file in GitLab
-* Click the `Edit`
+* Click `Edit`
 * Make your changes (you can use `Preview` to see how the diagram will look like)
 * Click `Commit changes`
 
