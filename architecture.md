@@ -43,7 +43,8 @@ note top of gateway
 end note
 
 note bottom of LRS
-    - create, update, delete lost reports
+    - CRUD for lost/found reports
+    - matching lost with found reports
 end note
 
 note bottom of TMS
@@ -54,7 +55,6 @@ end note
 
 note left of NS
     - send notification emails
-    - push notifications to frontend
 end note
 
 note top of auth0
