@@ -30,7 +30,7 @@ REST --> gateway
 REST --> auth0
 gateway --> LRS
 gateway --> TMS
-LRS --> kafka: <lost report created>
+LRS --> kafka: <items matched>
 TMS --> kafka: <text message sent>
 kafka --> NS
 LRS - DB_LRS
